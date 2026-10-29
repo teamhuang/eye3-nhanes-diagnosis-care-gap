@@ -238,7 +238,10 @@ check("main: NO leftover AUTHOR INPUT placeholder","AUTHOR INPUT REQUIRED" not i
 check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v7.0.0" in mdtxt)
 check("Discussion gap-direction logic fixed (overstate apparent gap)","overstate the apparent diagnosis gap" in mdtxt)
 check("CL: signed by corresponding author","Jianhuang Huang" in cltxt_n and "teamhuang@sina.com" in cltxt_n and "2026-10-29" in cltxt_n)
-check("CL: final-steps checklist present","Final steps before clicking submit" in cltxt_n)
+check("CL: internal author work-list removed from cover letter","Final steps before clicking submit" not in cltxt_n and "Checklist to complete" not in cltxt_n)
+_SUBMIT=ROOT/"manuscript"/"SUBMISSION_CHECKLIST.md"
+_subtxt=open(_SUBMIT,encoding="utf-8").read() if _SUBMIT.exists() else ""
+check("work-list retained in SUBMISSION_CHECKLIST.md","FINAL SUBMISSION-FILE VERIFICATION" in _subtxt and "Zenodo" in _subtxt)
 # NO-FABRICATION: a REAL-looking Zenodo/DOI or ORCID must NOT appear (would be invented)
 fake_doi=re.search(r"10\.\d{4,5}/zenodo\.\d+", mdtxt+cltxt_n)
 check("no fabricated Zenodo DOI anywhere", not fake_doi, str(fake_doi.group(0) if fake_doi else ""))

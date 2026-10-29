@@ -59,10 +59,6 @@ https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap/releases/tag/v7.0.0)
 with Zenodo to mint a citable version DOI, which will be added to the Code-availability statement
 once issued. We do not cite a DOI until one exists.
 
-*Final steps before clicking submit (corresponding author): (1) confirm the Zenodo-archived DOI and
-paste it into the Code-availability statement; (2) re-run `verify_v7.py` and rebuild/validate the
-DOCX; (3) confirm the figures and that the STROBE line anchors still match the final files.*
-
 Sincerely,
 
 Jianhuang Huang
