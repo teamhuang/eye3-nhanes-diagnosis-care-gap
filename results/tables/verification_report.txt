@@ -90,7 +90,7 @@ Generated: 2026-10-29  |  source of truth: results/tables/numbers_v7.csv  |  aud
 
 8. AUTOMATED AUDIT (verify_v7.py)
 ------------------------------------------------------------------------------
-  PASSED: 218   FAILED: 0
+  PASSED: 237   FAILED: 0
   ALL CHECKS PASS
   verify_v7 exit code: 0
 

@@ -50,21 +50,26 @@ design-based standardisation, and a supplementary audit of every model's degrees
 
 This article is original, not under consideration elsewhere, and all authors have approved the
 submission in its submitted form. Data are public third-party files; no individual-level data are
-redistributed. **Funding, author contributions, competing interests, an AI/LLM-use disclosure and a
-versioned public code repository with its DOI are not yet finalised and will be completed in the
-manuscript and code repository before submission** — they are currently marked as author-to-complete
-placeholders and we do not claim they are finished. The full analysis archive (code, result tables,
-the consolidated `numbers_v7.csv`, figures and manuscript; no individual-level data) is provided as
+redistributed. **Funding (none received), author contributions, competing interests and the
+AI/LLM-use disclosure are now completed in the manuscript.** The one outstanding item is the
+versioned public code-repository DOI: the full analysis archive (code, result tables, the
+consolidated `numbers_v7.csv`, figures and manuscript; no individual-level data) is provided as
 `submission_repo_v7/`, and the corresponding author will deposit it on GitHub and archive the release
-on Zenodo to obtain the version DOI before submitting.
+on Zenodo to obtain the version DOI and insert it into the Code-availability statement before
+submitting. We do not cite a DOI until one exists.
 
-*Checklist to complete before clicking submit (corresponding author): (1) fill the author byline,
-affiliations and corresponding-author email at the top of the manuscript; (2) fill Funding, Author
-contributions (CRediT) and Competing interests, and confirm the AI-use wording; (3) create the public
-repository, mint the Zenodo DOI and paste it into the Code-availability statement; (4) confirm the
-figures and that `verify_v7.py` reproduces every number. This cover letter should then be signed
-below.*
+*Final steps before clicking submit (corresponding author): (1) create the public repository, mint
+the Zenodo DOI and paste it into the Code-availability statement; (2) re-run `verify_v7.py` and
+rebuild/validate the DOCX; (3) confirm the figures and that the STROBE line anchors still match the
+final files.*
 
 Sincerely,
-*[AUTHOR INPUT REQUIRED — corresponding author name, degree(s), position, institution, postal
-address, email, and date; sign on behalf of all authors.]*
+
+Jianhuang Huang
+Department of Neurosurgery, Affiliated Hospital of Putian University, Putian, Fujian, China
+teamhuang@sina.com
+(on behalf of all authors, including co-corresponding author Jing Wang, Eye Institute of Shandong
+First Medical University; Qingdao Eye Hospital of Shandong First Medical University, Qingdao,
+Shandong, China — 13273530801@163.com)
+
+2026-10-29

@@ -217,12 +217,41 @@ for nm,c in must.items(): check(nm, c)
 # ---------- (4b) cover-letter fixes ----------
 cltxt_n=re.sub(r"\s+"," ",cltxt)  # cover letter is hard-wrapped; match on collapsed whitespace
 check("CL no false 'declarations completed' claim","disclosure are completed" not in cltxt_n and "interests and AI-use disclosure are completed" not in cltxt_n, "still claims complete")
-check("CL states declarations NOT yet finalised","not yet finalised" in cltxt_n and "we do not claim they are finished" in cltxt_n)
+check("CL: declarations completed, only DOI pending","the one outstanding item is the" in cltxt_n.lower() and "versioned public code-repository DOI" in cltxt_n)
 check("CL drops '118 checks' count emphasis","118 checks" not in cltxt_n)
 check("CL eye-care overclaim replaced","most robust correlate" not in cltxt_n)
 check("CL eye-care reviewer sentence present","clearest association with patient-reported diagnosis" in cltxt_n and "did not consistently withstand multiple-testing correction" in cltxt_n)
 check("CL novelty vs 2025 ref acknowledged","not, in itself, our novelty" in cltxt_n)
 check("CL references numbers_v7","numbers_v7.csv" in cltxt_n)
+
+# ---------- (4c) submission declarations FILLED + NO-FABRICATION guards ----------
+# author supplied byline/funding/contributions/COI this round; verify they are FILLED and that no
+# AUTHOR INPUT placeholder survives in the manuscript (the code DOI stays an explicit placeholder).
+check("main: real authors present","Jianhuang Huang" in mdtxt and "Jing Wang" in mdtxt)
+check("main: real affiliations present","Affiliated Hospital of Putian University" in mdtxt and "Shandong First Medical University" in mdtxt)
+check("main: corresponding emails present","teamhuang@sina.com" in mdtxt and "13273530801@163.com" in mdtxt)
+check("main: funding = no-specific-grant statement","received no specific grant from any funding agency" in mdtxt)
+check("main: author contributions assigned (named CRediT)","**Jianhuang Huang:** Conceptualization" in mdtxt and "**Jing Wang:** Conceptualization, Resources, Supervision" in mdtxt)
+check("main: competing-interests declaration present","The authors declare no competing financial or non-financial interests." in mdtxt)
+check("main: AI/LLM disclosure present (truthful)","AI coding assistant (QoderWork" in mdtxt and "No AI tool meets the ICMJE authorship criteria" in mdtxt)
+check("main: NO leftover AUTHOR INPUT placeholder","AUTHOR INPUT REQUIRED" not in mdtxt)
+check("main: code-availability references deposit-ready archive","submission_repo_v7" in mdtxt and "Zenodo" in mdtxt)
+check("CL: signed by corresponding author","Jianhuang Huang" in cltxt_n and "teamhuang@sina.com" in cltxt_n and "2026-10-29" in cltxt_n)
+check("CL: final-steps checklist present","Final steps before clicking submit" in cltxt_n)
+# NO-FABRICATION: a REAL-looking Zenodo/DOI or ORCID must NOT appear (would be invented)
+fake_doi=re.search(r"10\.\d{4,5}/zenodo\.\d+", mdtxt+cltxt_n)
+check("no fabricated Zenodo DOI anywhere", not fake_doi, str(fake_doi.group(0) if fake_doi else ""))
+fake_orcid=re.search(r"\b\d{4}-\d{4}-\d{4}-\d{3}[\dX]\b", mdtxt)
+check("no fabricated ORCID in manuscript", not fake_orcid, str(fake_orcid.group(0) if fake_orcid else ""))
+check("DOI placeholder explicitly marked not-yet-created","TO BE MINTED BY CORRESPONDING AUTHOR; not yet created" in mdtxt)
+# STROBE must use official items 1-22 and give real line anchors (no leftover TBD)
+STROBE=ROOT/"manuscript"/"STROBE_checklist.md"
+strotxt=open(STROBE,encoding="utf-8").read() if STROBE.exists() else ""
+check("STROBE has official item 22 (Funding)","| 22 | Funding" in strotxt)
+check("STROBE has official item 12d cross-sectional text","Cross-sectional:" in strotxt and "sampling strategy" in strotxt)
+check("STROBE no leftover TBD page column","TBD" not in strotxt)
+check("STROBE uses line anchors","M15" in strotxt)
+check("STROBE marks not-applicable with reason","Not applicable" in strotxt and "no follow-up" in strotxt)
 
 # ---------- (5) stale/forbidden ----------
 forbidden=["89.1","the only US nationally representative","is unmeasured in nationally","⁶⁻ ",
