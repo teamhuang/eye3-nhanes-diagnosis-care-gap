@@ -51,17 +51,17 @@ design-based standardisation, and a supplementary audit of every model's degrees
 This article is original, not under consideration elsewhere, and all authors have approved the
 submission in its submitted form. Data are public third-party files; no individual-level data are
 redistributed. **Funding (none received), author contributions, competing interests and the
-AI/LLM-use disclosure are now completed in the manuscript.** The one outstanding item is the
-versioned public code-repository DOI: the full analysis archive (code, result tables, the
-consolidated `numbers_v7.csv`, figures and manuscript; no individual-level data) is provided as
-`submission_repo_v7/`, and the corresponding author will deposit it on GitHub and archive the release
-on Zenodo to obtain the version DOI and insert it into the Code-availability statement before
-submitting. We do not cite a DOI until one exists.
+AI/LLM-use disclosure are now completed in the manuscript.** The one remaining item is the citable
+code DOI: the full analysis archive (code, result tables, the consolidated `numbers_v7.csv`, figures
+and manuscript; no individual-level data) is now deposited in a public, version-tagged GitHub
+repository — https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap (release v7.0.0:
+https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap/releases/tag/v7.0.0) — and is registered
+with Zenodo to mint a citable version DOI, which will be added to the Code-availability statement
+once issued. We do not cite a DOI until one exists.
 
-*Final steps before clicking submit (corresponding author): (1) create the public repository, mint
-the Zenodo DOI and paste it into the Code-availability statement; (2) re-run `verify_v7.py` and
-rebuild/validate the DOCX; (3) confirm the figures and that the STROBE line anchors still match the
-final files.*
+*Final steps before clicking submit (corresponding author): (1) confirm the Zenodo-archived DOI and
+paste it into the Code-availability statement; (2) re-run `verify_v7.py` and rebuild/validate the
+DOCX; (3) confirm the figures and that the STROBE line anchors still match the final files.*
 
 Sincerely,
 

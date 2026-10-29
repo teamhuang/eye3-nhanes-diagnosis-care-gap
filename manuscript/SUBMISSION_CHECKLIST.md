@@ -25,12 +25,12 @@ source files.
 - [x] **AI/LLM use**: truthful disclosure written; AI not listed as author (ICMJE-compliant).
 - [x] **Cover-letter signature**: Jianhuang Huang, affiliation, email, date 2026-10-29.
 
-## C. CODE-REPOSITORY DOI — **still OPEN (one-time, ~10 min; the only submission blocker)**
-- [ ] Create a **public GitHub** repo and push `submission_repo_v7/` (steps in its `README.md`).
-- [ ] Link/ deposit that release on **Zenodo** to mint a **version DOI**.
-- [ ] Replace `https://doi.org/[10.xxxx/zenodo.XXXXXXX — TO BE MINTED …]` in the manuscript's
-      **Code availability** with the real DOI, and update `CITATION.cff` / `.zenodo.json` author fields.
-- [ ] Do **not** cite a DOI before it exists (the current text is an explicit, marked placeholder).
+## C. CODE-REPOSITORY — GitHub **DONE**; only the Zenodo DOI remains (the last blocker)
+- [x] Public repo created and pushed: **https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap** (release **v7.0.0**).
+- [x] Manuscript Code-availability + cover letter now cite the real repo/release URL (no fabricated DOI).
+- [ ] Enable Zenodo–GitHub import for this repo (or manually upload the v7.0.0 archive on Zenodo) to mint the **version DOI**.
+- [ ] Append the issued DOI (`https://doi.org/10.5281/zenodo.XXXXXXX`) to the Code-availability statement and update `CITATION.cff` / `.zenodo.json`.
+- [ ] Do **not** cite a DOI before it exists (the current text says so explicitly).
 
 ## D. FINAL SUBMISSION-FILE VERIFICATION (run last, after C)
 - [ ] Re-run `python code/verify_v7.py` → expect all checks pass (it flags any number drift).

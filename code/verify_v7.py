@@ -217,7 +217,7 @@ for nm,c in must.items(): check(nm, c)
 # ---------- (4b) cover-letter fixes ----------
 cltxt_n=re.sub(r"\s+"," ",cltxt)  # cover letter is hard-wrapped; match on collapsed whitespace
 check("CL no false 'declarations completed' claim","disclosure are completed" not in cltxt_n and "interests and AI-use disclosure are completed" not in cltxt_n, "still claims complete")
-check("CL: declarations completed, only DOI pending","the one outstanding item is the" in cltxt_n.lower() and "versioned public code-repository DOI" in cltxt_n)
+check("CL: declarations completed, only DOI pending","the one remaining item is the citable code doi" in cltxt_n.lower() and "github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in cltxt_n)
 check("CL drops '118 checks' count emphasis","118 checks" not in cltxt_n)
 check("CL eye-care overclaim replaced","most robust correlate" not in cltxt_n)
 check("CL eye-care reviewer sentence present","clearest association with patient-reported diagnosis" in cltxt_n and "did not consistently withstand multiple-testing correction" in cltxt_n)
@@ -235,7 +235,7 @@ check("main: author contributions assigned (named CRediT)","**Jianhuang Huang:**
 check("main: competing-interests declaration present","The authors declare no competing financial or non-financial interests." in mdtxt)
 check("main: AI/LLM disclosure present (truthful)","AI coding assistant (QoderWork" in mdtxt and "No AI tool meets the ICMJE authorship criteria" in mdtxt)
 check("main: NO leftover AUTHOR INPUT placeholder","AUTHOR INPUT REQUIRED" not in mdtxt)
-check("main: code-availability references deposit-ready archive","submission_repo_v7" in mdtxt and "Zenodo" in mdtxt)
+check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v7.0.0" in mdtxt)
 check("Discussion gap-direction logic fixed (overstate apparent gap)","overstate the apparent diagnosis gap" in mdtxt)
 check("CL: signed by corresponding author","Jianhuang Huang" in cltxt_n and "teamhuang@sina.com" in cltxt_n and "2026-10-29" in cltxt_n)
 check("CL: final-steps checklist present","Final steps before clicking submit" in cltxt_n)
@@ -244,7 +244,7 @@ fake_doi=re.search(r"10\.\d{4,5}/zenodo\.\d+", mdtxt+cltxt_n)
 check("no fabricated Zenodo DOI anywhere", not fake_doi, str(fake_doi.group(0) if fake_doi else ""))
 fake_orcid=re.search(r"\b\d{4}-\d{4}-\d{4}-\d{3}[\dX]\b", mdtxt)
 check("no fabricated ORCID in manuscript", not fake_orcid, str(fake_orcid.group(0) if fake_orcid else ""))
-check("DOI placeholder explicitly marked not-yet-created","TO BE MINTED BY CORRESPONDING AUTHOR; not yet created" in mdtxt)
+check("DOI explicitly stated as not-yet-cited","no DOI is cited until one exists" in mdtxt)
 # STROBE must use official items 1-22 and give real line anchors (no leftover TBD)
 STROBE=ROOT/"manuscript"/"STROBE_checklist.md"
 strotxt=open(STROBE,encoding="utf-8").read() if STROBE.exists() else ""
