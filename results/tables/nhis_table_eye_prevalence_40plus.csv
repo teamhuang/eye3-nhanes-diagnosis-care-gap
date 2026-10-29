@@ -1,0 +1,7 @@
+"condition","n_unweighted","est_pct","lo_pct","hi_pct"
+"diabetic_retinopathy_ever_told",22330,1.27,1.09,1.46
+"cataract_ever_told",22343,21.17,20.37,21.96
+"glaucoma_ever_told",22332,3.97,3.66,4.28
+"macular_degeneration_ever_told",22310,2.66,2.4,2.91
+"seen_eye_doctor_past_12mo",22112,48.71,47.69,49.72
+"dilated_eye_exam_within_12mo",22142,49.93,48.87,51

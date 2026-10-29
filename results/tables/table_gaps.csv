@@ -1,0 +1,7 @@
+"target","metric","n_unweighted","est","lo","hi"
+"DR diagnosis gap: UNDIAGNOSED among diabetics WITH objective DR","g",319,70.5951876355074,65.015934840432,76.1744404305829
+"DR diagnosis gap: UNDIAGNOSED among ALL with objective DR (incl. undiagnosed DM)","g",710,89.0909712396799,87.0871630228257,91.0947794565341
+"AMD diagnosis gap: UNDIAGNOSED among objective any-AMD","g",441,82.3223073936976,78.1131304720685,86.5314843153267
+"LATE-AMD gap: UNDIAGNOSED among objective LATE AMD","g",55,41.4356213887296,26.2411889008853,56.630053876574
+"DR screening gap: NO dilated exam within 12mo among diabetics","g",1119,35.8149280492841,31.380938509514,40.2489175890541
+"DR screening gap: NO dilated exam within 12mo among diabetics WITH objective DR","g",319,32.1912081022633,25.8065643304374,38.5758518740891

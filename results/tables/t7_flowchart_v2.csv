@@ -1,0 +1,11 @@
+"step","n"
+"Examined NHANES adults >=40 (2005-2008)",6797
+"With gradable retinal photo (DR)",5704
+"With gradable retinal photo (AMD)",5604
+"Diagnosed diabetes (among gradable DR)",884
+"Diabetes AND objective retinopathy",319
+"...with self-reported dx item answered (primary DR gap denominator)",319
+"...complete covariates -> DR model",190
+"Objective any-AMD (>=40)",441
+"...with dx item answered (primary AMD gap denominator)",441
+"...complete covariates -> AMD model",230

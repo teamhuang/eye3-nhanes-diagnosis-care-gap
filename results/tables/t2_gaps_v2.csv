@@ -1,0 +1,7 @@
+"target","n_unweighted","est","lo","hi"
+"DR: objective retinopathy but NO self-reported diabetic-eye-disease dx (among diabetics)",319,70.5951876355074,65.015934840432,76.1744404305829
+"DR: same, among ALL with objective retinopathy (incl. undiagnosed DM)",710,89.0909712396799,87.0871630228257,91.0947794565341
+"AMD: objective AMD but NO self-reported macular-degeneration dx",441,82.3223073936976,78.1131304720685,86.5314843153267
+"Late AMD: objective late AMD but NO self-reported dx",55,41.4356213887296,26.2411889008853,56.630053876574
+"Care: no dilated exam within 12 months (all diabetics)",1119,35.8149280492841,31.380938509514,40.2489175890541
+"Care: no dilated exam within 12 months (diabetics WITH objective retinopathy)",319,32.1912081022633,25.8065643304374,38.5758518740891

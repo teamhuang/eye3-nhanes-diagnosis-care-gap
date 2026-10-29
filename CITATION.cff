@@ -1,0 +1,21 @@
+{
+  "cff-version": "1.2.0",
+  "message": "If you use this software, please cite it as below.",
+  "title": "Analysis code: Objectively graded retinal disease, self-reported diagnosis, and eye-care utilisation in US adults (NHANES 2005-2008)",
+  "version": "7.0.0",
+  "date-released": "2026-10-29",
+  "repository-code": "[AUTHOR INPUT: GitHub URL]",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "[AUTHOR INPUT: Family, Given]"
+    }
+  ],
+  "keywords": [
+    "NHANES",
+    "diabetic retinopathy",
+    "age-related macular degeneration",
+    "diagnosis gap",
+    "survey methods"
+  ]
+}

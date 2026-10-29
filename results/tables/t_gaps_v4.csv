@@ -1,0 +1,6 @@
+"measure","n","est","lo","hi"
+"DR: graded retinopathy in diabetes, NO self-reported dx",313,70.190383976171,63.821604065815,75.8620446676191
+"AMD: graded AMD, NO self-reported dx",436,82.2018790274206,77.3410924648098,86.205906191612
+"Late AMD: graded late AMD, NO self-reported dx",55,41.4356213887296,25.2998618101339,59.6453989262111
+"Care: NO dilated exam within 12 months (all diabetes)",1119,35.8149280492877,31.3432902155504,40.5477521951091
+"Care: NO dilated exam within 12 months (diabetes + retinopathy)",313,32.4065128314807,25.8714682103085,39.7080493936707

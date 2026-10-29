@@ -1,0 +1,11 @@
+"cohort","variable","n_missing"
+"DR-eligible (n=319)","education(valid 1/2/3)",104
+"DR-eligible (n=319)","family income(PIR)",31
+"DR-eligible (n=319)","insurance",0
+"DR-eligible (n=319)","usual source of care",0
+"DR-eligible (n=319)","dilated-exam item",0
+"AMD-eligible (n=441)","education(valid 1/2/3)",189
+"AMD-eligible (n=441)","family income(PIR)",42
+"AMD-eligible (n=441)","insurance",1
+"AMD-eligible (n=441)","usual source of care",0
+"AMD-eligible (n=441)","dilated-exam item",379

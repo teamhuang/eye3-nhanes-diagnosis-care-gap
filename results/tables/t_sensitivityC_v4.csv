@@ -1,0 +1,8 @@
+"model","term","aOR","lo","hi","p_raw","n","df_resid"
+"MI-full (retains all responders; educ_bw2 + pir_filled + missingness flags)","agec",1.00117390468048,0.971908657148345,1.03132036127154,0.935233384492156,313,21
+"MI-full (retains all responders; educ_bw2 + pir_filled + missingness flags)","sexMale",0.925036605053041,0.435792004712725,1.9635346941533,0.831612587768395,313,21
+"MI-full (retains all responders; educ_bw2 + pir_filled + missingness flags)","educ_bw2low",0.863376436567078,0.382408202028837,1.94927532219368,0.711314195538663,313,21
+"MI-full (retains all responders; educ_bw2 + pir_filled + missingness flags)","race_bwNon-White",1.26839589032048,0.715844050160547,2.24745618018485,0.397174237555874,313,21
+"MI-full (retains all responders; educ_bw2 + pir_filled + missingness flags)","pir_filled",1.47770673045343,1.09761895083462,1.98941279172246,0.0125163385550773,313,21
+"MI-full (retains all responders; educ_bw2 + pir_filled + missingness flags)","factor(pir_missing)1",1.08042472622174,0.327629466281887,3.56292003365465,0.894040553923933,313,21
+"MI-full (retains all responders; educ_bw2 + pir_filled + missingness flags)","factor(educ_missing)1",0.695165900767093,0.301807173864959,1.60120656974692,0.375074590352301,313,21

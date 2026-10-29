@@ -1,0 +1,3 @@
+"condition","metric","n_unweighted","est","lo","hi"
+"Self-reported glaucoma dx (VIQ090=1)","p",6760,5.06330638613825,4.39809604192391,5.7285167303526
+"Self-reported cataract operation (VIQ071=1)","p",6790,11.0744741719465,10.026919511661,12.122028832232

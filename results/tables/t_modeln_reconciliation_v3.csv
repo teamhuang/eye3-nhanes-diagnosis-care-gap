@@ -1,0 +1,8 @@
+"model","n"
+"DR primary gap (descriptive)",319
+"DR CORE multivariable (educ+PIR)",190
+"DR missing-indicator (educ+PIR filled)",215
+"DR + insurance",190
+"AMD primary gap (descriptive)",441
+"AMD CORE multivariable (educ+PIR)",230
+"AMD insurance-descriptive (insured known)",229

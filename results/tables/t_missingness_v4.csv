@@ -1,0 +1,11 @@
+"cohort","variable","n_missing"
+"DR-eligible (responders)","education(valid 1/2/3)",102
+"DR-eligible (responders)","family income(PIR)",30
+"DR-eligible (responders)","insurance",0
+"DR-eligible (responders)","usual source of care",0
+"DR-eligible (responders)","dilated-exam item(DIQ360)",0
+"AMD-eligible (responders)","education(valid 1/2/3)",188
+"AMD-eligible (responders)","family income(PIR)",42
+"AMD-eligible (responders)","insurance",1
+"AMD-eligible (responders)","usual source of care",0
+"AMD-eligible (responders)","dilated-exam item(DIQ360)",377

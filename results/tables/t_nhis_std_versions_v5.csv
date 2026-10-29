@@ -1,0 +1,4 @@
+"quantity","est_pct","lo_pct","hi_pct"
+"NHIS crude weighted (>=40)",2.65560920000528,2.39930176531016,2.9119166347004
+"NHIS age-standardised (design covariance; std weights fixed from NHANES)",2.45398339896855,2.21716552438733,2.69080127354978
+"NHIS age-and-sex-standardised (design covariance; std weights fixed from NHANES)",2.45934077225249,2.22282332655537,2.69585821794961

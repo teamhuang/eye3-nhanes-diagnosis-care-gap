@@ -1,0 +1,150 @@
+key,value
+"prev|Any objectively graded retinopathy (all 40+, descriptive)",9.75 (8.79–10.80) [n=5704]
+prev|Moderate-or-worse retinopathy (all 40+),1.35 (1.10–1.65) [n=5704]
+prev|Objective retinopathy AMONG adults with diabetes,33.01 (29.30–36.95) [n=884]
+prev|Any AMD (early+late),6.58 (5.65–7.66) [n=5604]
+prev|Late AMD,0.80 (0.54–1.18) [n=5604]
+prev|Diagnosed diabetes,12.05 (10.68–13.56) [n=6639]
+prev|Insured (any coverage),87.38 (85.09–89.36) [n=6788]
+prev|Self-reported glaucoma dx,5.06 (4.41–5.80) [n=6760]
+prev|Self-reported cataract operation,11.07 (10.03–12.21) [n=6790]
+"gap|DR: graded retinopathy in diabetes, NO self-reported dx",70.2 (63.8–75.9) [n=313]
+"gap|AMD: graded AMD, NO self-reported dx",82.2 (77.3–86.2) [n=436]
+"gap|Late AMD: graded late AMD, NO self-reported dx",41.4 (25.3–59.6) [n=55]
+gap|Care: NO dilated exam within 12 months (all diabetes),35.8 (31.3–40.5) [n=1119]
+gap|Care: NO dilated exam within 12 months (diabetes + retinopathy),32.4 (25.9–39.7) [n=313]
+sevdx|OPDURL4=1,16.6 [n=560]
+sevdx|OPDURL4=2,21.9 [n=197]
+sevgap|OPDURL4=2,78.1 (71.3–83.7) [n=197]
+sevdx|OPDURL4=3,35.6 [n=85]
+sevgap|OPDURL4=3,64.4 (48.3–77.8) [n=85]
+sevdx|OPDURL4=4,84.3 [n=31]
+sevgap|OPDURL4=4,15.7 (5.0–39.7) [n=31]
+age|AMD 40-59,99.1 (95.6–99.8) [n=75]
+age|AMD 60-74,86.6 (77.8–92.3) [n=165]
+age|AMD >=75,66.7 (60.1–72.6) [n=196]
+age|AMD >=50,79.7 (75.0–83.8) [n=406]
+age|DR 40-59,73.4 (59.9–83.6) [n=101]
+age|DR 60-74,66.5 (58.6–73.6) [n=156]
+age|DR >=75,71.1 (56.0–82.7) [n=56]
+lateSub|Geographic atrophy,50.3 (26.6–73.9) [n=32]
+lateSub|Exudative/neovascular,27.7 (8.0–62.9) [n=23]
+modeln|descriptive diagnosis-gap denominator (responders),313
+modeln|CORE complete-case (educ AND income complete),187
+"modeln|CORE + insurance (educ,income,insurance complete)",187
+modeln|missing-indicator SENSITIVITY (retains all responders; income median-filled + income&education missingness flags),313
+"modeln|education-complete subset [descriptive count ONLY, not a fitted model]",211
+modeln|AMD descriptive denominator (responders),436
+modeln|AMD CORE (educ+income complete),226
+modeln|AMD insurance-descriptive (insured known),225
+miss|DR-eligible (responders)|education(valid 1/2/3),102
+miss|DR-eligible (responders)|family income(PIR),30
+miss|DR-eligible (responders)|insurance,0
+miss|DR-eligible (responders)|usual source of care,0
+miss|DR-eligible (responders)|dilated-exam item(DIQ360),0
+miss|AMD-eligible (responders)|education(valid 1/2/3),188
+miss|AMD-eligible (responders)|family income(PIR),42
+miss|AMD-eligible (responders)|insurance,1
+miss|AMD-eligible (responders)|usual source of care,0
+miss|AMD-eligible (responders)|dilated-exam item(DIQ360),377
+prim|PRIMARY: no-reported-dx DR|agec,aOR 0.99 (0.96–1.02) Holm 1 [n=187]
+prim|PRIMARY: no-reported-dx DR|sexMale,aOR 1.29 (0.45–3.71) Holm 1 [n=187]
+prim|PRIMARY: no-reported-dx DR|educ_bw<HS,aOR 0.67 (0.28–1.61) Holm 1 [n=187]
+prim|PRIMARY: no-reported-dx DR|race_bwNon-White,aOR 1.57 (0.49–5.07) Holm 1 [n=187]
+prim|PRIMARY: no-reported-dx DR|pir2,aOR 1.34 (0.92–1.96) Holm 0.594 [n=187]
+prim|PRIMARY: no-reported-dx AMD|agec,aOR 0.93 (0.89–0.96) Holm 0.00306 [n=226]
+prim|PRIMARY: no-reported-dx AMD|sexMale,aOR 0.99 (0.32–3.08) Holm 1 [n=226]
+prim|PRIMARY: no-reported-dx AMD|educ_bw<HS,aOR 0.82 (0.31–2.21) Holm 1 [n=226]
+prim|PRIMARY: no-reported-dx AMD|race_bwNon-White,aOR 1.56 (0.29–8.52) Holm 1 [n=226]
+prim|PRIMARY: no-reported-dx AMD|pir2,aOR 0.88 (0.60–1.31) Holm 1 [n=226]
+insDR|agec,aOR 1.00 (0.97–1.04) p 0.931 [n=187]
+insDR|sexMale,aOR 1.34 (0.46–3.93) p 0.571 [n=187]
+insDR|educ_bw<HS,aOR 0.66 (0.26–1.67) p 0.359 [n=187]
+insDR|race_bwNon-White,aOR 1.46 (0.44–4.86) p 0.512 [n=187]
+insDR|pir2,aOR 1.39 (0.96–2.00) p 0.0772 [n=187]
+insDR|insured_fUninsured,aOR 1.87 (0.57–6.13) p 0.282 [n=187]
+miC|agec,aOR 1.00 (0.97–1.03) p 0.935 [n=313]
+miC|sexMale,aOR 0.93 (0.44–1.96) p 0.832 [n=313]
+miC|educ_bw2low,aOR 0.86 (0.38–1.95) p 0.711 [n=313]
+miC|race_bwNon-White,aOR 1.27 (0.72–2.25) p 0.397 [n=313]
+miC|pir_filled,aOR 1.48 (1.10–1.99) p 0.0125 [n=313]
+miC|factor(pir_missing)1,aOR 1.08 (0.33–3.56) p 0.894 [n=313]
+miC|factor(educ_missing)1,aOR 0.70 (0.30–1.60) p 0.375 [n=313]
+AMDins,insured 177/211; uninsured 14/14 (known_insured_n=225)
+Acrude|exam=0,82.0% unweighted_n=106
+Acrude|exam=1,64.5% unweighted_n=207
+Aadj|recent_dilated_exam,aOR 0.30 (0.10–0.92) Holm 0.266 [n=187]
+Aadj|agec,aOR 1.00 (0.97–1.03) Holm 1 [n=187]
+Aadj|sexMale,aOR 1.09 (0.35–3.38) Holm 1 [n=187]
+Aadj|educ_bw<HS,aOR 0.90 (0.26–3.07) Holm 1 [n=187]
+Aadj|race_bwNon-White,aOR 1.90 (0.58–6.23) Holm 1 [n=187]
+Aadj|pir2,aOR 1.49 (1.04–2.15) Holm 0.261 [n=187]
+Aadj|insured_fUninsured,aOR 0.72 (0.17–2.97) Holm 1 [n=187]
+Aadj|factor(OPDURL4)3,aOR 0.43 (0.15–1.21) Holm 0.614 [n=187]
+Aadj|factor(OPDURL4)4,aOR 0.05 (0.01–0.24) Holm 0.0099 [n=187]
+Agcom|marginal P(no dx | exam=0),81.8% (no reliable CI)
+Agcom|marginal P(no dx | exam=1),62.4% (no reliable CI)
+Agcom|risk difference (exam1-exam0),-19.4% (no reliable CI)
+Ainter,aOR 1.61 (0.24–10.79) p 0.595 [n=187]
+"NHIS|NHIS 2016 self-reported macular degeneration, survey-weighted crude (>=40)",2.66 (2.40–2.91)
+NHIS|NHIS age-standardised to NHANES 2005-2008 40+ structure (5 bands),2.45 (2.23–2.68)
+NHISband|40-49,rate=0.47% stdw=0.3358
+NHISband|50-59,rate=1.05% stdw=0.2894
+NHISband|60-69,rate=2.48% stdw=0.1832
+NHISband|70-79,rate=5.26% stdw=0.1207
+NHISband|80+,rate=12.71% stdw=0.0709
+amdsev|Early AMD,87.9 (84.4–90.6) [n=381]
+amdsev|Late AMD,41.4 (25.3–59.6) [n=55]
+amdsev|Geographic atrophy,50.3 (26.6–73.9) [n=32]
+amdsev|Neovascular/exudative,27.7 (8.0–62.9) [n=23]
+nrb|DR|responders_only,70.2 (63.8-75.9)
+nrb|DR|all_diagnosed,69.2 (62.5-75.2)
+nrb|DR|all_undiagnosed,70.6 (64.4-76.1)
+nrb|AMD|responders_only,82.2 (77.3-86.2)
+nrb|AMD|all_diagnosed,81.6 (76.7-85.7)
+nrb|AMD|all_undiagnosed,82.3 (77.5-86.3)
+"red|Full core (educ+income, n=187)|agec",aOR 0.99 (0.96–1.02) p 0.653 [n=187]
+"red|Full core (educ+income, n=187)|sexMale",aOR 1.29 (0.45–3.71) p 0.616 [n=187]
+"red|Full core (educ+income, n=187)|educ_bw<HS",aOR 0.67 (0.28–1.61) p 0.352 [n=187]
+"red|Full core (educ+income, n=187)|race_bwNon-White",aOR 1.57 (0.49–5.07) p 0.428 [n=187]
+"red|Full core (educ+income, n=187)|pir2",aOR 1.34 (0.92–1.96) p 0.119 [n=187]
+red|Drop education (income kept)|agec,aOR 1.00 (0.97–1.03) p 0.842 [n=283]
+red|Drop education (income kept)|sexMale,aOR 0.80 (0.36–1.75) p 0.558 [n=283]
+red|Drop education (income kept)|race_bwNon-White,aOR 1.18 (0.67–2.06) p 0.553 [n=283]
+red|Drop education (income kept)|pir2,aOR 1.46 (1.08–1.97) p 0.0167 [n=283]
+red|Drop education+income (all responders)|agec,aOR 0.99 (0.96–1.03) p 0.654 [n=313]
+red|Drop education+income (all responders)|sexMale,aOR 1.11 (0.53–2.32) p 0.773 [n=313]
+red|Drop education+income (all responders)|race_bwNon-White,aOR 1.05 (0.63–1.76) p 0.839 [n=313]
+mi|agec,aOR 1.00 (0.98–1.03) p 0.776 [n=313]
+mi|sexMale,aOR 0.99 (0.49–2.01) p 0.987 [n=313]
+mi|educ_bw<HS,aOR 0.76 (0.33–1.79) p 0.527 [n=313]
+mi|race_bwNon-White,aOR 1.38 (0.82–2.34) p 0.221 [n=313]
+mi|pir2,aOR 1.38 (1.02–1.87) p 0.0373 [n=313]
+grad|gradable,"n=5704, mean age 59.6, male 50.1%, diabetes 15.9%, non-White 46.4%, insured 83.7%, <HS 14.4%"
+grad|ungradable,"n=1093, mean age 64.5, male 47.3%, diabetes 22.1%, non-White 55.4%, insured 86.2%, <HS 23.2%"
+ipw|Any retinopathy (all >=40),naive 9.75 → IPW 9.98
+ipw|Any AMD (all >=40),naive 6.58 → IPW 6.87
+ddf|DR responders (313),"n=313, strata=31, PSU=2, df(Taylor)=29"
+ddf|AMD responders (436),"n=436, strata=31, PSU=2, df(Taylor)=29"
+ddf|DR core model (187),"n=187, strata=30, PSU=2, df(Taylor)=28"
+ddf|AMD core model (226),"n=226, strata=31, PSU=2, df(Taylor)=29"
+nhisver|NHIS crude weighted (>=40),2.66 (2.40–2.91)
+nhisver|NHIS age-standardised (design covariance; std weights fixed from NHANES),2.45 (2.22–2.69)
+nhisver|NHIS age-and-sex-standardised (design covariance; std weights fixed from NHANES),2.46 (2.22–2.70)
+nhisband5|40-49,"rate 0.47% (weighted N 40,073,764; std weight 0.3358)"
+nhisband5|50-59,"rate 1.05% (weighted N 43,125,102; std weight 0.2894)"
+nhisband5|60-69,"rate 2.48% (weighted N 36,734,203; std weight 0.1832)"
+nhisband5|70-79,"rate 5.26% (weighted N 20,055,586; std weight 0.1207)"
+nhisband5|80+,"rate 12.71% (weighted N 11,012,780; std weight 0.0709)"
+CNT|dr_gradable_disease,319
+CNT|dr_gap_responders,313
+CNT|dr_core_complete_cases,187
+CNT|amd_gradable_disease,441
+CNT|amd_gap_responders,436
+CNT|amd_core_complete_cases,226
+CNT|mild_dr_responders,197
+CNT|moderate_dr_responders,85
+CNT|severe_dr_responders,31
+CNT|geographic_atrophy_n,32
+CNT|neovascular_amd_n,23
+CNT|late_amd_n,55

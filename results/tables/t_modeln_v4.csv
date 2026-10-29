@@ -1,0 +1,9 @@
+"quantity","n"
+"descriptive diagnosis-gap denominator (responders)",313
+"CORE complete-case (educ AND income complete)",187
+"CORE + insurance (educ,income,insurance complete)",187
+"missing-indicator SENSITIVITY (retains all responders; income median-filled + income&education missingness flags)",313
+"education-complete subset [descriptive count ONLY, not a fitted model]",211
+"AMD descriptive denominator (responders)",436
+"AMD CORE (educ+income complete)",226
+"AMD insurance-descriptive (insured known)",225

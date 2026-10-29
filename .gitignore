@@ -1,0 +1,14 @@
+# never publish individual-level / derived person-level data
+data/
+*.xpt
+*.XPT
+analytic_dataset*.csv
+*.sas7bdat
+# build artefacts
+__pycache__/
+*.pyc
+reproducibility_v*/
+submission_repo_v*/
+*.zip
+.Rhistory
+.RData

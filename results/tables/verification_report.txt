@@ -1,0 +1,100 @@
+VERIFICATION REPORT — eye3 diagnosis/care-gap manuscript (analysis v7, round 8)
+Generated: 2026-10-29  |  source of truth: results/tables/numbers_v7.csv  |  audit: code/verify_v7.py
+==============================================================================
+
+1. SAMPLE-DENOMINATOR ASSERTIONS (numbers_v7.csv CNT keys vs raw recount of analytic_dataset_v2.csv)
+------------------------------------------------------------------------------
+  dr_gradable_disease        numbers_v7=319  raw_recount=319  expected=319  OK
+  dr_gap_responders          numbers_v7=313  raw_recount=313  expected=313  OK
+  dr_core_complete_cases     numbers_v7=187  raw_recount=187  expected=187  OK
+  amd_gradable_disease       numbers_v7=441  raw_recount=441  expected=441  OK
+  amd_gap_responders         numbers_v7=436  raw_recount=436  expected=436  OK
+  amd_core_complete_cases    numbers_v7=226  raw_recount=226  expected=226  OK
+  mild_dr_responders         numbers_v7=197  raw_recount=197  expected=197  OK
+  moderate_dr_responders     numbers_v7=85  raw_recount=85  expected=85  OK
+  severe_dr_responders       numbers_v7=31  raw_recount=31  expected=31  OK
+  geographic_atrophy_n       numbers_v7=32  raw_recount=32  expected=32  OK
+  neovascular_amd_n          numbers_v7=23  raw_recount=23  expected=23  OK
+  late_amd_n                 numbers_v7=55  raw_recount=55  expected=55  OK
+  mild+mod+severe == 313 : 197+85+31 = 313  OK
+  GA + neovascular == late(55): 32+23 = 55  OK
+  GA & neovascular SAME worse eye (mutual exclusivity): both=0 (expected 0)  OK
+  RESULT: ALL DENOMINATORS RECONCILE
+
+2. DESIGN + RESIDUAL DEGREES OF FREEDOM (per model; from survey_analysis_v7.R audit)
+------------------------------------------------------------------------------
+  ANALYSIS A (eye-care)            design_df=22; rank=10; residual_df=13; CI multiplier t(0.975,13)=2.1604; n=187
+  PRIMARY AMD core                 design_df=29; rank=6; residual_df=24; CI multiplier t(0.975,24)=2.0639; n=226
+  PRIMARY DR core                  design_df=22; rank=6; residual_df=17; CI multiplier t(0.975,17)=2.1098; n=187
+  SUPP DR + insurance              design_df=22; rank=7; residual_df=16; CI multiplier t(0.975,16)=2.1199; n=187
+  design-only  AMD core model                 226 resp; strata=31; total PSU=60; design df (survey::degf)=29
+  design-only  AMD responders                 436 resp; strata=31; total PSU=61; design df (survey::degf)=30
+  design-only  DR core model                  187 resp; strata=30; total PSU=52; design df (survey::degf)=22
+  design-only  DR responders                  313 resp; strata=31; total PSU=59; design df (survey::degf)=28
+  design-only  Full pooled >=40 design        6797 resp; strata=31; total PSU=62; design df (survey::degf)=31
+  NOTE: CIs use exp(coef +/- qt(0.975, residual_df)*SE) at residual_df = degf(design) - rank + 1;
+        verify_v7 independently re-derives each aOR/CI/P from coef/SE/residual-df and matches.
+
+3. PER-MODEL CI / P RE-DERIVATION (audit key rows)
+------------------------------------------------------------------------------
+  PRIMARY DR core|pir2                                 aOR 1.34 (0.92–1.96); coef 0.2957 SE 0.1800; p 0.119; Holm p 0.594
+  PRIMARY AMD core|agec                                aOR 0.93 (0.89–0.96); coef -0.0775 SE 0.0197; p 0.000612; Holm p 0.00306
+  SUPP DR + insurance|pir2                             aOR 1.39 (0.96–2.00); coef 0.3259 SE 0.1725; p 0.0772; Holm p 0.463
+  SUPP DR + insurance|insured_fUninsured               aOR 1.87 (0.57–6.13); coef 0.6243 SE 0.5607; p 0.282; Holm p 1
+  ANALYSIS A (eye-care)|recent_dilated_exam            aOR 0.30 (0.10–0.92); coef -1.2158 SE 0.5264; p 0.038; Holm p 0.266
+  ANALYSIS A (eye-care)|factor(OPDURL4)4               aOR 0.05 (0.01–0.24); coef -2.9331 SE 0.7034; p 0.0011; Holm p 0.0099
+
+4. HEADLINE ESTIMATES (design-weighted, logit CIs)
+------------------------------------------------------------------------------
+  DR: graded retinopathy in diabetes, NO self-reported dx                70.2 (63.8–75.9) [n=313]
+  AMD: graded AMD, NO self-reported dx                                   82.2 (77.3–86.2) [n=436]
+  Early AMD                                                              87.9 (84.4–90.6) [n=381]
+  Late AMD: graded late AMD, NO self-reported dx                         41.4 (25.3–59.6) [n=55]
+  Moderate-or-worse retinopathy (DR, responders)                         53.4 (38.7–67.5) [n=116]
+  Care: NO dilated exam within 12 months (diabetes + retinopathy)        32.4 (25.9–39.7) [n=313]
+  Any AMD (early+late)                                                   6.58 (5.65–7.66) [n=5604]
+  NHIS age-standardised (design covariance; std weights fixed from NHANES) 2.45 (2.22–2.69)
+
+5. AMD AGE GRADIENT vs SEVERITY (round-8 addition, Supplementary Table S9)
+------------------------------------------------------------------------------
+  agec                                       aOR 0.92 (0.89–0.95); p 7.88e-06; Holm p 2.36e-05
+  amdstagelate                               aOR 0.18 (0.08–0.37); p 6.08e-05; Holm p 0.000122
+  df                                         design_df=30; rank=4; residual_df=27; n=436
+  Early AMD age 40-59                        99.1 (95.6–99.8) [n=74]
+  Early AMD age 60-69                        92.4 (80.5–97.3) [n=86]
+  Early AMD age 70+                          78.4 (72.9–82.9) [n=221]
+
+6. IPW WEIGHT DECOMPOSITION (round-8 fix of S8 labels)
+------------------------------------------------------------------------------
+  base(age,sex,race)|combwt                            combined survey×IPW weight median 16,566 / max 110,456
+  base(age,sex,race)|ess                               Kish ESS (combined) 3,656; raw-ESS 3,508; gradable rows=5704; model complete-case n=6797
+  base(age,sex,race)|invfactor                         1/P factor min 1.07 / median 1.18 / max 1.57
+  base(age,sex,race)|prob                              gradability prob min 0.637 / median 0.849 / max 0.938; n floored at 0.05 = 0
+  extended(+dm,insured,educ)|combwt                    combined survey×IPW weight median 15,545 / max 115,872
+  extended(+dm,insured,educ)|ess                       Kish ESS (combined) 3,635; raw-ESS 3,508; gradable rows=5704; model complete-case n=3687
+  extended(+dm,insured,educ)|invfactor                 1/P factor min 1.00 / median 1.09 / max 1.76
+  extended(+dm,insured,educ)|prob                      gradability prob min 0.569 / median 0.915 / max 1.000; n floored at 0.05 = 0
+
+7. ROBUSTNESS / SENSITIVITY
+------------------------------------------------------------------------------
+  Non-response bounds  DR: 70.2 (63.8-75.9) / 69.2 (62.5-75.2) / 70.6 (64.4-76.1)
+                       AMD: 82.2 (77.3-86.2) / 81.6 (76.7-85.7) / 82.3 (77.5-86.3)
+  Income across missing-data handling:
+     complete-case  aOR 1.34 (0.92–1.96) Holm 0.594 [n=187]
+     +insurance     aOR 1.39 (0.96–2.00) p 0.0772 [n=187]
+     drop-education aOR 1.46 (1.08–1.97) p 0.0167 [n=283]
+     multiple-imput aOR 1.38 (1.02–1.87) p 0.0373 [n=313]
+     per-imputation pooled aOR 1.388 (across m: 1.243–1.490, SD 0.048, n_imputations=20)
+  Grading-feasibility IPW: naive 9.75 → IPW(extended) 10.13 | naive 6.58 → IPW(extended) 6.77
+  Discordance selection:   DR 70.2 (63.8-75.9) → 70.2 (64.1-75.6) ; AMD 82.2 (77.3-86.2) → 82.0 (77.1-86.0)
+
+8. AUTOMATED AUDIT (verify_v7.py)
+------------------------------------------------------------------------------
+  PASSED: 218   FAILED: 0
+  ALL CHECKS PASS
+  verify_v7 exit code: 0
+
+9. CI SANITY + double-rounding guard: every weighted proportion satisfies 0<=lo<=est<=hi<=100;
+   every audit display string is single-rounded from full precision (verify_v7 checks both).
+
+OVERALL: PASS — manuscript numbers are reproducible from source data and internally consistent.

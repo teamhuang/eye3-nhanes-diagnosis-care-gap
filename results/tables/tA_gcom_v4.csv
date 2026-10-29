@@ -1,0 +1,4 @@
+"quantity","est","lo","hi","ci_available"
+"marginal P(no dx | exam=0)",0.818428396424346,NA,NA,FALSE
+"marginal P(no dx | exam=1)",0.624413425954998,NA,NA,FALSE
+"risk difference (exam1-exam0)",-0.194014970469347,NA,NA,FALSE

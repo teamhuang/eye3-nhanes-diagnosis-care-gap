@@ -1,0 +1,27 @@
+{
+  "title": "Objectively graded retinal disease, self-reported diagnosis, and eye-care utilisation in US adults (NHANES 2005-2008): analysis archive v7",
+  "version": "v7.0.0",
+  "license": "MIT",
+  "upload_type": "software",
+  "keywords": [
+    "NHANES",
+    "NHIS",
+    "diabetic retinopathy",
+    "AMD",
+    "diagnosis gap",
+    "care gap",
+    "survey methodology",
+    "STROBE"
+  ],
+  "creators": [
+    {
+      "person": {
+        "name": "[AUTHOR INPUT: Family, Given]",
+        "affiliation": "[AUTHOR INPUT]",
+        "orcid": "[optional]"
+      }
+    }
+  ],
+  "description": "R/Python analysis code, consolidated result tables (numbers_v7.csv) and figures reproducing every number in the manuscript. Contains no individual-level data.",
+  "access_right": "open"
+}

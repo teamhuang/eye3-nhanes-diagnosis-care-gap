@@ -1,0 +1,85 @@
+key,value
+prev|Any objectively graded retinopathy (all 40+),9.75 (8.78–10.71) [n=5704]
+prev|Moderate-or-worse retinopathy (all 40+),1.35 (1.09–1.61) [n=5704]
+prev|Objective retinopathy AMONG adults with diabetes,33.01 (29.34–36.69) [n=884]
+prev|Any AMD (early+late),6.58 (5.62–7.55) [n=5604]
+prev|Late AMD,0.80 (0.50–1.10) [n=5604]
+prev|Diagnosed diabetes,12.05 (10.67–13.43) [n=6639]
+prev|Insured (any coverage),87.38 (85.33–89.43) [n=6788]
+prev|Self-reported glaucoma dx,5.06 (4.40–5.73) [n=6760]
+prev|Self-reported cataract operation,11.07 (10.03–12.12) [n=6790]
+gap|DR: objective retinopathy but NO self-reporte,70.6 (65.0–76.2) [n=319]
+"gap|DR: same, among ALL with objective retinopath",89.1 (87.1–91.1) [n=710]
+gap|AMD: objective AMD but NO self-reported macul,82.3 (78.1–86.5) [n=441]
+gap|Late AMD: objective late AMD but NO self-repo,41.4 (26.2–56.6) [n=55]
+gap|Care: no dilated exam within 12 months (all d,35.8 (31.4–40.2) [n=1119]
+gap|Care: no dilated exam within 12 months (diabe,32.2 (25.8–38.6) [n=319]
+sensA|DR mild (4-level=2),78.6 (72.9–84.2) [n=203]
+sensA|DR moderate (=3),64.4 (50.2–78.6) [n=85]
+sensA|DR severe/PDR (=4),15.7 (3.0–28.5) [n=31]
+sensA|AMD early only (OPDUARM==1),87.9 (85.0–90.9) [n=386]
+sensA|AMD late (OPDUARM==2),41.4 (26.2–56.6) [n=55]
+sensB|AMD 40-59,99.1 (96.3–99.8) [n=76]
+sensB|AMD 60-74,86.7 (78.3–92.1) [n=166]
+sensB|AMD >=75,67.1 (60.9–72.8) [n=199]
+sensB|AMD >=50,79.9 (75.4–83.8) [n=411]
+sensB|DR 40-59,73.4 (61.0–83.0) [n=101]
+sensB|DR 60-74,67.0 (59.5–73.6) [n=160]
+sensB|DR >=75,72.5 (58.4–83.2) [n=58]
+fig3|No DR (OPDURL4=1),16.6 (13.7–19.9) [n=560]
+fig3|Mild NPDR (=2),21.9 (16.5–28.4) [n=197]
+fig3|Moderate NPDR (=3),35.6 (23.0–50.7) [n=85]
+fig3|Severe/PDR (=4),84.3 (67.2–93.4) [n=31]
+miss|DR-eligible (n=319)|education(valid 1/2/3),104
+miss|DR-eligible (n=319)|family income(PIR),31
+miss|DR-eligible (n=319)|insurance,0
+miss|DR-eligible (n=319)|usual source of care,0
+miss|DR-eligible (n=319)|dilated-exam item,0
+miss|AMD-eligible (n=441)|education(valid 1/2/3),189
+miss|AMD-eligible (n=441)|family income(PIR),42
+miss|AMD-eligible (n=441)|insurance,1
+miss|AMD-eligible (n=441)|usual source of care,0
+miss|AMD-eligible (n=441)|dilated-exam item,379
+modeln|DR primary gap (descriptive),319
+modeln|DR CORE multivariable (educ+PIR),190
+modeln|DR missing-indicator (educ+PIR filled),215
+modeln|DR + insurance,190
+modeln|AMD primary gap (descriptive),441
+modeln|AMD CORE multivariable (educ+PIR),230
+modeln|AMD insurance-descriptive (insured known),229
+prim|no-reported-dx DR|agec,aOR 0.99 (0.97–1.02) p_holm 1 [n=190]
+prim|no-reported-dx DR|sexMale,aOR 1.32 (0.50–3.49) p_holm 1 [n=190]
+prim|no-reported-dx DR|educ_bw<HS,aOR 0.67 (0.30–1.51) p_holm 1 [n=190]
+prim|no-reported-dx DR|race_bwNon-White,aOR 1.63 (0.55–4.81) p_holm 1 [n=190]
+prim|no-reported-dx DR|pir2,aOR 1.34 (0.94–1.90) p_holm 0.627 [n=190]
+prim|no-reported-dx AMD|agec,aOR 0.93 (0.89–0.96) p_holm 0.00312 [n=230]
+prim|no-reported-dx AMD|sexMale,aOR 0.99 (0.34–2.91) p_holm 1 [n=230]
+prim|no-reported-dx AMD|educ_bw<HS,aOR 0.83 (0.32–2.11) p_holm 1 [n=230]
+prim|no-reported-dx AMD|race_bwNon-White,aOR 1.68 (0.34–8.30) p_holm 1 [n=230]
+prim|no-reported-dx AMD|pir2,aOR 0.90 (0.63–1.29) p_holm 1 [n=230]
+insDR|agec,aOR 1.00 (0.97–1.03) p 0.904
+insDR|sexMale,aOR 1.36 (0.51–3.66) p 0.546
+insDR|educ_bw<HS,aOR 0.67 (0.29–1.55) p 0.361
+insDR|race_bwNon-White,aOR 1.52 (0.50–4.59) p 0.469
+insDR|pir2,aOR 1.38 (0.98–1.94) p 0.0839
+insDR|insured_fUninsured,aOR 1.82 (0.61–5.42) p 0.298
+AMDins,insured 181/215 undiagnosed; uninsured 14/14 undiagnosed (n known=229)
+sensC|agec,aOR 1.00 (0.98–1.03) p 0.781 [n=319]
+sensC|sexMale,aOR 0.92 (0.44–1.90) p 0.817 [n=319]
+sensC|educ_bw2low,aOR 0.88 (0.41–1.88) p 0.742 [n=319]
+sensC|race_bwNon-White,aOR 1.30 (0.76–2.21) p 0.352 [n=319]
+sensC|pir_filled,aOR 1.47 (1.11–1.94) p 0.013 [n=319]
+sensC|factor(pir_missing)1,aOR 1.08 (0.35–3.31) p 0.892 [n=319]
+sensC|factor(educ_missing)1,aOR 0.73 (0.34–1.56) p 0.428 [n=319]
+Acrude|exam=0,82.2%
+Acrude|exam=1,65.1%
+Aadj|recent_dilated_exam,aOR 0.29 (0.11–0.81) p 0.035 [n=190]
+Aadj|agec,aOR 1.00 (0.97–1.03) p 0.889 [n=190]
+Aadj|sexMale,aOR 1.10 (0.39–3.07) p 0.859 [n=190]
+Aadj|educ_bw<HS,aOR 0.90 (0.30–2.74) p 0.862 [n=190]
+Aadj|race_bwNon-White,aOR 1.95 (0.67–5.70) p 0.243 [n=190]
+Aadj|pir2,aOR 1.49 (1.07–2.07) p 0.0336 [n=190]
+Aadj|insured_fUninsured,aOR 0.70 (0.19–2.56) p 0.603 [n=190]
+Aadj|factor(OPDURL4)3,aOR 0.42 (0.16–1.10) p 0.1 [n=190]
+Aadj|factor(OPDURL4)4,aOR 0.05 (0.01–0.20) p 0.000984 [n=190]
+NHIS,crude weighted 2.66%; age-standardised 2.25% (2.03–2.47)
