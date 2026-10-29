@@ -236,6 +236,7 @@ check("main: competing-interests declaration present","The authors declare no co
 check("main: AI/LLM disclosure present (truthful)","AI coding assistant (QoderWork" in mdtxt and "No AI tool meets the ICMJE authorship criteria" in mdtxt)
 check("main: NO leftover AUTHOR INPUT placeholder","AUTHOR INPUT REQUIRED" not in mdtxt)
 check("main: code-availability references deposit-ready archive","submission_repo_v7" in mdtxt and "Zenodo" in mdtxt)
+check("Discussion gap-direction logic fixed (overstate apparent gap)","overstate the apparent diagnosis gap" in mdtxt)
 check("CL: signed by corresponding author","Jianhuang Huang" in cltxt_n and "teamhuang@sina.com" in cltxt_n and "2026-10-29" in cltxt_n)
 check("CL: final-steps checklist present","Final steps before clicking submit" in cltxt_n)
 # NO-FABRICATION: a REAL-looking Zenodo/DOI or ORCID must NOT appear (would be invented)
