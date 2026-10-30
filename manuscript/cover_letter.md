@@ -53,10 +53,10 @@ submission in its submitted form. Data are public third-party files; no individu
 redistributed. **Funding (none received), author contributions, competing interests and the
 AI/LLM-use disclosure are now completed in the manuscript.** The one remaining item is the citable
 code DOI: the full analysis archive (code, result tables, the consolidated `numbers_v7.csv`, figures
-and manuscript; no individual-level data) is now deposited in a public, version-tagged GitHub
-repository — https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap (release v7.0.0:
-https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap/releases/tag/v7.0.0) — and is registered
-with Zenodo to mint a citable version DOI, which will be added to the Code-availability statement
+and manuscript; no individual-level data) is deposited in a public, version-tagged GitHub
+repository — https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap (release v8.0.0:
+https://github.com/teamhuang/eye3-nhanes-diagnosis-care-gap/releases/tag/v8.0.0) — and is intended to be
+registered with Zenodo to mint a citable version DOI, which will be added to the Code-availability statement
 once issued. We do not cite a DOI until one exists.
 
 Sincerely,

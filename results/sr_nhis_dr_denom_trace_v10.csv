@@ -1,0 +1,4 @@
+scenario,pct,n_unweighted,sum_weight,manuscript_row_unweighted_n,manuscript_weighted_pct
+A: all 40+ (NA filled 0),1.2715639929526734,22371,151372012.0,22330,1.27
+B: only answered item,1.2738273311140356,22330,151103054.0,22330,1.27
+C: diabetics + answered,8.180752628283336,3261,20866662.0,22330,1.27

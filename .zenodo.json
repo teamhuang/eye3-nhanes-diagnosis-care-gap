@@ -1,6 +1,6 @@
 {
-  "title": "Objectively graded retinal disease, self-reported diagnosis, and eye-care utilisation in US adults (NHANES 2005-2008): analysis archive v7",
-  "version": "v7.0.0",
+  "title": "Objectively graded retinal disease, self-reported diagnosis, and eye-care utilisation in US adults (NHANES 2005-2008): analysis archive v8",
+  "version": "v8.0.0",
   "license": "MIT",
   "upload_type": "software",
   "keywords": [
@@ -16,8 +16,15 @@
   "creators": [
     {
       "person": {
-        "name": "[AUTHOR INPUT: Family, Given]",
-        "affiliation": "[AUTHOR INPUT]",
+        "name": "Huang, Jianhuang",
+        "affiliation": "Department of Neurosurgery, Affiliated Hospital of Putian University, Putian, Fujian, China",
+        "orcid": "[optional]"
+      }
+    },
+    {
+      "person": {
+        "name": "Wang, Jing",
+        "affiliation": "Eye Institute of Shandong First Medical University; Qingdao Eye Hospital of Shandong First Medical University, Qingdao, Shandong, China",
         "orcid": "[optional]"
       }
     }

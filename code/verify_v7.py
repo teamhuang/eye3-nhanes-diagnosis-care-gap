@@ -19,19 +19,46 @@ def tinv(p,df): return float(_st.ppf(p,df))
 def t2p(tt,df): return float(2*_st.sf(abs(tt),df))
 ROOT=Path(__file__).resolve().parents[1]
 MD  = ROOT/"manuscript"/"题目3手稿.md"
+MD_DOCX = ROOT/"manuscript"/"\u9898\u76ee3\u624b\u7a3f\u6700\u65b0\u7248\u672c.docx"
 SUPP= ROOT/"manuscript"/"Supplementary_Materials_v7.md"
 NUMS= ROOT/"results"/"tables"/"numbers_v7.csv"
 RAW = ROOT/"data"/"processed"/"analytic_dataset_v2.csv"
 AUDT= ROOT/"results"/"tables"/"t_model_audit_v7.csv"
 CL  = ROOT/"manuscript"/"cover_letter.md"
+CL_DOCX  = ROOT/"manuscript"/"cover_letter.docx"
+
+def _read_docx_text(path):
+    try:
+        import docx
+        d = docx.Document(str(path))
+        parts = [p.text for p in d.paragraphs]
+        for tbl in d.tables:
+            for row in tbl.rows:
+                for cell in row.cells:
+                    for p in cell.paragraphs:
+                        parts.append(p.text)
+        return "\n".join(parts)
+    except Exception:
+        return ""
+
+def _load_text(md_path, docx_fallback):
+    if md_path.exists():
+        return open(md_path, encoding="utf-8").read()
+    if docx_fallback is not None and Path(docx_fallback).exists():
+        return _read_docx_text(docx_fallback)
+    return ""
+
 fails, oks = [], []
 def check(name, cond, detail=""): (oks if cond else fails).append((name, bool(cond), detail))
 src={}
 with open(NUMS,encoding="utf-8") as f:
     for row in csv.reader(f):
         if row and row[0]!="key": src[row[0]]=row[1] if len(row)>1 else ""
-mdtxt=open(MD,encoding="utf-8").read(); supptxt=open(SUPP,encoding="utf-8").read()
-cltxt=open(CL,encoding="utf-8").read() if CL.exists() else ""
+mdtxt = _load_text(MD, MD_DOCX)
+if not MD.exists():
+    print("[verify_v7] manuscript .md deleted; loaded docx instead (%d chars)" % len(mdtxt))
+supptxt = open(SUPP, encoding="utf-8").read() if SUPP.exists() else ""
+cltxt   = _load_text(CL, CL_DOCX)
 text=mdtxt+"\n"+supptxt
 def nd(x): return re.sub(r"[\u2013\u2014-]","–",x)
 text_u=nd(text)
@@ -176,7 +203,7 @@ must={
  "missingness mechanism subtable":"S4c" in supptxt and "not** with the outcome" in supptxt,
  "gradability extended model":"extended" in supptxt and "10.13" in supptxt,
  "discordance selection sensitivity":"Discordance-specific selection sensitivity" in supptxt,
- "system-design softened": nd("consistent with — but do not establish") in text_u,
+ "system-design softened": "weighting cannot address unmeasured selection" in text_u,
  "NHIS no 2.7-fold multiple":"2.7-fold" not in mdtxt,
  "NHIS reviewer sentence":"cannot be attributed specifically to diagnostic unawareness" in mdtxt,
  "terminology: no 'diabetic retinopathy cohort'":"diabetic retinopathy cohort" not in mdtxt.lower(),
@@ -201,15 +228,15 @@ must={
  "S8 floor non-binding":"never binding" in supptxt,
  "S8 extended model_n 3,687":"3,687" in supptxt,
  "S8 ESS only limited check":"limited stability check" in supptxt or "only a **limited" in supptxt,
- "S5c NHIS glaucoma/cataract moved out":"Supplementary Table S5c" in supptxt and "21.17 (20.37–21.96)" in supptxt,
+ "S5c NHIS glaucoma/cataract moved out":"Supplementary Table S7c" in supptxt and "21.17 (20.37–21.96)" in supptxt,
  "S4c no artefact claim":"not an artefact of the chosen covariate set" not in supptxt,
- "S4c does-not-test robustness":"does not test" in supptxt and "robustness of the income association" in supptxt,
+ "S4c does-not-test robustness":"does not test" in supptxt and "consistency of the income association" in supptxt,
  "Discussion no 'sight-threatening'":"sight-threatening" not in mdtxt,
  "Discussion retinal abnormalities":"retinal abnormalities, patient-reported diagnosis" in mdtxt,
- "Discussion targeted not broad screening":"do not by themselves establish the effectiveness or cost-effectiveness of broader population screening" in mdtxt,
- "Discussion novelty not within-individual pairing":"not, by itself, a novelty" in mdtxt,
+ "Discussion targeted not broad screening":"speaks to the effectiveness or cost-effectiveness of broader population screening" in mdtxt,
+ "Discussion novelty not within-individual pairing":"already paired objective grading with a patient-reported diagnosis" in mdtxt,
  "Intro no 'specified for this study before estimation'":"specified for this study before estimation" not in mdtxt,
- "Intro four objectives sentence":"present analysis focuses on these four objectives" in mdtxt,
+ "Intro four objectives sentence":"aimed to (i)" in mdtxt and "(iv)" in mdtxt,
  "Table3 AMD insurance not fitted row":"not included (complete separation)" in mdtxt,
 }
 for nm,c in must.items(): check(nm, c)
@@ -231,11 +258,11 @@ check("main: real authors present","Jianhuang Huang" in mdtxt and "Jing Wang" in
 check("main: real affiliations present","Affiliated Hospital of Putian University" in mdtxt and "Shandong First Medical University" in mdtxt)
 check("main: corresponding emails present","teamhuang@sina.com" in mdtxt and "13273530801@163.com" in mdtxt)
 check("main: funding = no-specific-grant statement","received no specific grant from any funding agency" in mdtxt)
-check("main: author contributions assigned (named CRediT)","**Jianhuang Huang:** Conceptualization" in mdtxt and "**Jing Wang:** Conceptualization, Resources, Supervision" in mdtxt)
+check("main: author contributions assigned (named CRediT)","Jianhuang Huang: Conceptualization, Methodology, Software" in mdtxt and "Jing Wang: Conceptualization, Resources, Supervision" in mdtxt)
 check("main: competing-interests declaration present","The authors declare no competing financial or non-financial interests." in mdtxt)
 check("main: AI/LLM disclosure present (truthful)","AI coding assistant (QoderWork" in mdtxt and "No AI tool meets the ICMJE authorship criteria" in mdtxt)
 check("main: NO leftover AUTHOR INPUT placeholder","AUTHOR INPUT REQUIRED" not in mdtxt)
-check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v7.0.0" in mdtxt)
+check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v8.0.0" in mdtxt)
 check("Discussion gap-direction logic fixed (overstate apparent gap)","overstate the apparent diagnosis gap" in mdtxt)
 check("CL: signed by corresponding author","Jianhuang Huang" in cltxt_n and "teamhuang@sina.com" in cltxt_n and "2026-10-29" in cltxt_n)
 check("CL: internal author work-list removed from cover letter","Final steps before clicking submit" not in cltxt_n and "Checklist to complete" not in cltxt_n)
@@ -247,7 +274,11 @@ fake_doi=re.search(r"10\.\d{4,5}/zenodo\.\d+", mdtxt+cltxt_n)
 check("no fabricated Zenodo DOI anywhere", not fake_doi, str(fake_doi.group(0) if fake_doi else ""))
 fake_orcid=re.search(r"\b\d{4}-\d{4}-\d{4}-\d{3}[\dX]\b", mdtxt)
 check("no fabricated ORCID in manuscript", not fake_orcid, str(fake_orcid.group(0) if fake_orcid else ""))
-check("DOI explicitly stated as not-yet-cited","no DOI is cited until one exists" in mdtxt)
+# The Round-11 polish removed the defensive "no DOI yet" sentence; the substantive guarantee is that
+# availability pins a resolvable version tag and mints NO unbacked DOI. Enforce that instead.
+check("code availability pins a resolvable version tag, cites no DOI",
+      "releases/tag/v8.0.0" in mdtxt and not re.search(r"\bdoi\.org/10\.5281|\b10\.5281/", mdtxt),
+      "")
 # STROBE must use official items 1-22 and give real line anchors (no leftover TBD)
 STROBE=ROOT/"manuscript"/"STROBE_checklist.md"
 strotxt=open(STROBE,encoding="utf-8").read() if STROBE.exists() else ""
