@@ -54,10 +54,10 @@ check("(2b) 'severe-or-proliferative retinopathy' present",
 check("(3) 'conditional rate within the NHIS diabetic subsample' removed",
       'conditional rate within the NHIS diabetic subsample' not in main_txt)
 
-# (4) new correct claim present (VIM_DREV asked of ALL Sample Adults)
-check("(4) Table 5 note now describes VIM_DREV as universal",
-      ('VIM_DREV' in main_txt and 'without a diabetes branch screener' in main_txt) or
-      ('asked without a diabetes branch screener' in main_txt))
+# (4) new correct claim present (VIM_DREV asked of ALL Sample Adults) — note now lives in the supplement (Table S6)
+check("(4) Table 5/S6 note describes VIM_DREV as universal",
+      ('VIM_DREV' in both_txt and 'without a diabetes branch screener' in both_txt) or
+      ('asked without a diabetes branch screener' in both_txt))
 
 # (5) NHIS trace artifact exists with 8.18% conditional
 if NHIS_TRACE.exists():

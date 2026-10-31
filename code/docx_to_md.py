@@ -8,7 +8,7 @@ from docx.table import Table
 from docx.text.paragraph import Paragraph
 from docx.oxml.ns import qn
 
-ROOT = Path("C:/eye3")
+ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "manuscript" / "题目3手稿最新版本.docx"
 DST = ROOT / "manuscript" / "题目3手稿.md"
 
@@ -18,7 +18,7 @@ body = d.element.body
 HEAD = {"Abstract", "Introduction", "Methods", "Results", "Discussion",
         "Conclusions", "Conclusion", "Data availability", "Funding",
         "Author contributions", "Competing interests", "Acknowledgements", "References"}
-FIGMAP = ["Fig1_gaps", "Fig2_severity_gradient", "Fig3_objective_vs_selfreport"]
+FIGMAP = ["Fig1_flowchart", "Fig2_gradient_forest", "Fig3_eyecare_dots"]
 
 # map each w:tbl element to its Table object by document order
 tables_in_order = d.tables

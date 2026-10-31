@@ -25,6 +25,9 @@ cells="\n".join(c.text for t in d.tables for r in t.rows for c in r.cells)
 full=text+"\n"+cells
 def nd(x): return re.sub(r"[\u2013\u2014-]","–",x)
 fu=nd(full)
+SUPP=ROOT/"manuscript"/"Supplementary_Materials_v7.md"
+supptxt=open(SUPP,encoding="utf-8").read() if SUPP.exists() else ""
+fu_all=fu+nd(supptxt)  # regression terms may now live in the supplement (e.g. insurance model -> Table S3)
 
 # (1) headline numbers
 headline=["70.2% (63.8–75.9)","82.2% (77.3–86.2)","41.4% (25.3–59.6)","32.4% (25.9–39.7)",
@@ -41,7 +44,7 @@ for k,v in src.items():
         m=re.search(r"(\d+\.\d+) \((\d+\.\d+)[–-](\d+\.\d+)\)", v)
         if m:
             disp=nd(f"{m.group(1)} ({m.group(2)}–{m.group(3)})")
-            if disp not in fu: reg_missing.append((k,disp))
+            if disp not in fu_all: reg_missing.append((k,disp))
 check("all displayed regression aOR(CI) retained", not reg_missing, str(reg_missing[:6]))
 
 # (3) denominators
@@ -86,12 +89,12 @@ check("raw GA+NV==55",rc["ga"]+rc["nv"]==55 and rc["lt"]==55)
 # (4) figure/table citations: present, sub-panel, in appearance order
 def firstpos(pat):
     m=re.search(re.escape(pat),full); return m.start() if m else -1
-req=["Figure 1","Figure 2, left panel","Figure 2, right panel","Figure 3","Figure S1","Figure S2",
-     "Table 1","Table 2","Table 3","Table 4","Table 5","Supplementary Table S3"]
+req=["Figure 1","Figure 2, panel a","Figure 2, panel b","Figure 3","Figure S1","Figure S2",
+     "Table 1","Table 2","Table 3","Supplementary Table S3"]
 for p in req: check("cited: "+p, firstpos(p)>=0)
-check("main figures numbered by appearance order", 0<=firstpos("Figure 1")<firstpos("Figure 2, left panel")<firstpos("Figure 3"))
-check("tables numbered by appearance order", 0<=firstpos("Table 1")<firstpos("Table 2")<firstpos("Table 3")<firstpos("Table 4")<firstpos("Table 5"))
-check("Fig2 sub-panel left before right", 0<=firstpos("Figure 2, left panel")<firstpos("Figure 2, right panel"))
+check("main figures numbered by appearance order", 0<=firstpos("Figure 1")<firstpos("Figure 2, panel a")<firstpos("Figure 3"))
+check("tables numbered by appearance order", 0<=firstpos("Table 1")<firstpos("Table 2")<firstpos("Table 3"))
+check("Fig2 sub-panel a before b", 0<=firstpos("Figure 2, panel a")<firstpos("Figure 2, panel b"))
 
 # (5) formatting: bold allowed on headings, figure captions and table captions
 CAPTION_PREFIX = re.compile(r'^\s*(?:Figure|Table|Supplementary\s+(?:Figure|Table))[\s\u00a0]', re.IGNORECASE)

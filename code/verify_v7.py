@@ -200,19 +200,19 @@ must={
  "missingness wording softened":"do not establish that the missingness mechanism is ignorable" in text_u,
  "MI not independent replications (S4b)":"independent replications" in supptxt and "not 20 independent" in supptxt,
  "MI above-1 phrasing (no 'every imputation')":"above 1 in each" in text_u or "lay above 1 in each" in text_u,
- "missingness mechanism subtable":"S4c" in supptxt and "not** with the outcome" in supptxt,
+ "missingness mechanism subtable":"(c) Missingness-mechanism models" in supptxt and "not** with the outcome" in supptxt,
  "gradability extended model":"extended" in supptxt and "10.13" in supptxt,
  "discordance selection sensitivity":"Discordance-specific selection sensitivity" in supptxt,
  "system-design softened": "weighting cannot address unmeasured selection" in text_u,
  "NHIS no 2.7-fold multiple":"2.7-fold" not in mdtxt,
  "NHIS reviewer sentence":"cannot be attributed specifically to diagnostic unawareness" in mdtxt,
  "terminology: no 'diabetic retinopathy cohort'":"diabetic retinopathy cohort" not in mdtxt.lower(),
- "Figure 2 severity gradient embed":"Fig2_severity_gradient.png" in mdtxt,
- "Figure 3 objective-vs-selfreport embed":"Fig3_objective_vs_selfreport.png" in mdtxt,
+ "Figure 2 severity gradient embed":"Fig2_gradient_forest.png" in mdtxt,
+ "Figure 3 objective-vs-selfreport embed":"Fig3_eyecare_dots.png" in mdtxt,
  "code availability v7":"survey_analysis_v7.R" in mdtxt and "verify_v7.py" in mdtxt and "consolidate_v7.py" in mdtxt,
  "numbers_v7 referenced":"numbers_v7.csv" in mdtxt and "numbers_v7.csv" in supptxt,
  # ---- round-8 additions ----
- "S7c audit table heading":"Supplementary Table S7c" in supptxt,
+ "S7c audit table heading":"Supplementary Table S3" in supptxt,
  "S7c exam row 0.30 (0.10–0.92)":"0.30 (0.10–0.92)" in nd(supptxt),
  "S7c exam P 0.038 & Holm 0.266":"0.038" in supptxt and "0.266" in supptxt,
  "S7c residual df 13 stated":"residual df 13" in text_u or "Residual df" in supptxt,
@@ -228,7 +228,7 @@ must={
  "S8 floor non-binding":"never binding" in supptxt,
  "S8 extended model_n 3,687":"3,687" in supptxt,
  "S8 ESS only limited check":"limited stability check" in supptxt or "only a **limited" in supptxt,
- "S5c NHIS glaucoma/cataract moved out":"Supplementary Table S7c" in supptxt and "21.17 (20.37–21.96)" in supptxt,
+ "S5c NHIS glaucoma/cataract moved out":"Supplementary Table S6" in supptxt and "21.17 (20.37–21.96)" in supptxt,
  "S4c no artefact claim":"not an artefact of the chosen covariate set" not in supptxt,
  "S4c does-not-test robustness":"does not test" in supptxt and "consistency of the income association" in supptxt,
  "Discussion no 'sight-threatening'":"sight-threatening" not in mdtxt,
@@ -237,7 +237,7 @@ must={
  "Discussion novelty not within-individual pairing":"already paired objective grading with a patient-reported diagnosis" in mdtxt,
  "Intro no 'specified for this study before estimation'":"specified for this study before estimation" not in mdtxt,
  "Intro four objectives sentence":"aimed to (i)" in mdtxt and "(iv)" in mdtxt,
- "Table3 AMD insurance not fitted row":"not included (complete separation)" in mdtxt,
+ "Table3 AMD insurance not fitted row":"Insurance was not estimable in the AMD model" in mdtxt,
 }
 for nm,c in must.items(): check(nm, c)
 
@@ -262,7 +262,7 @@ check("main: author contributions assigned (named CRediT)","Jianhuang Huang: Con
 check("main: competing-interests declaration present","The authors declare no competing financial or non-financial interests." in mdtxt)
 check("main: AI/LLM disclosure present (truthful)","AI coding assistant (QoderWork" in mdtxt and "No AI tool meets the ICMJE authorship criteria" in mdtxt)
 check("main: NO leftover AUTHOR INPUT placeholder","AUTHOR INPUT REQUIRED" not in mdtxt)
-check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v8.0.0" in mdtxt)
+check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v9.0.0" in mdtxt)
 check("Discussion gap-direction logic fixed (overstate apparent gap)","overstate the apparent diagnosis gap" in mdtxt)
 check("CL: signed by corresponding author","Jianhuang Huang" in cltxt_n and "teamhuang@sina.com" in cltxt_n and "2026-10-29" in cltxt_n)
 check("CL: internal author work-list removed from cover letter","Final steps before clicking submit" not in cltxt_n and "Checklist to complete" not in cltxt_n)
@@ -277,7 +277,7 @@ check("no fabricated ORCID in manuscript", not fake_orcid, str(fake_orcid.group(
 # The Round-11 polish removed the defensive "no DOI yet" sentence; the substantive guarantee is that
 # availability pins a resolvable version tag and mints NO unbacked DOI. Enforce that instead.
 check("code availability pins a resolvable version tag, cites no DOI",
-      "releases/tag/v8.0.0" in mdtxt and not re.search(r"\bdoi\.org/10\.5281|\b10\.5281/", mdtxt),
+      "releases/tag/v9.0.0" in mdtxt and not re.search(r"\bdoi\.org/10\.5281|\b10\.5281/", mdtxt),
       "")
 # STROBE must use official items 1-22 and give real line anchors (no leftover TBD)
 STROBE=ROOT/"manuscript"/"STROBE_checklist.md"
@@ -329,8 +329,8 @@ if m:
     wc=len(re.findall(r"\S+",m.group(1))); check(f"abstract<=200 (={wc})", wc<=200, f"wc={wc}")
 else: check("abstract found",False)
 title=mdtxt.splitlines()[0].lstrip("# ").strip(); tw=len(re.findall(r"\S+",title)); check(f"title<=20w (={tw})",tw<=20)
-for fig in ["Fig1_gaps","Fig2_severity_gradient","Fig3_objective_vs_selfreport"]: check(f"embed {fig}", fig+".png" in mdtxt)
-for fig in ["FigS1_flowchart","FigS2_eyecare_predicted"]: check(f"embed {fig}", fig+".png" in supptxt)
+for fig in ["Fig1_flowchart","Fig2_gradient_forest","Fig3_eyecare_dots"]: check(f"embed {fig}", fig+".png" in mdtxt)
+for fig in ["FigS1_nhis_amd","FigS2_gradability_ipw"]: check(f"embed {fig}", fig+".png" in supptxt)
 
 print("="*60); print(f"PASSED: {len(oks)}   FAILED: {len(fails)}"); print("="*60)
 if fails:
