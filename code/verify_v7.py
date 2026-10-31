@@ -212,7 +212,7 @@ must={
  "code availability v7":"survey_analysis_v7.R" in mdtxt and "verify_v7.py" in mdtxt and "consolidate_v7.py" in mdtxt,
  "numbers_v7 referenced":"numbers_v7.csv" in mdtxt and "numbers_v7.csv" in supptxt,
  # ---- round-8 additions ----
- "S7c audit table heading":"Supplementary Table S3" in supptxt,
+ "regression-audit table heading (new S2)":"Supplementary Table S2" in supptxt,
  "S7c exam row 0.30 (0.10–0.92)":"0.30 (0.10–0.92)" in nd(supptxt),
  "S7c exam P 0.038 & Holm 0.266":"0.038" in supptxt and "0.266" in supptxt,
  "S7c residual df 13 stated":"residual df 13" in text_u or "Residual df" in supptxt,
@@ -228,7 +228,7 @@ must={
  "S8 floor non-binding":"never binding" in supptxt,
  "S8 extended model_n 3,687":"3,687" in supptxt,
  "S8 ESS only limited check":"limited stability check" in supptxt or "only a **limited" in supptxt,
- "S5c NHIS glaucoma/cataract moved out":"Supplementary Table S6" in supptxt and "21.17 (20.37–21.96)" in supptxt,
+ "NHIS glaucoma/cataract moved out (new S4)":"Supplementary Table S4" in supptxt and "21.17 (20.37–21.96)" in supptxt,
  "S4c no artefact claim":"not an artefact of the chosen covariate set" not in supptxt,
  "S4c does-not-test robustness":"does not test" in supptxt and "consistency of the income association" in supptxt,
  "Discussion no 'sight-threatening'":"sight-threatening" not in mdtxt,
@@ -262,7 +262,7 @@ check("main: author contributions assigned (named CRediT)","Jianhuang Huang: Con
 check("main: competing-interests declaration present","The authors declare no competing financial or non-financial interests." in mdtxt)
 check("main: AI/LLM disclosure present (truthful)","AI coding assistant (QoderWork" in mdtxt and "No AI tool meets the ICMJE authorship criteria" in mdtxt)
 check("main: NO leftover AUTHOR INPUT placeholder","AUTHOR INPUT REQUIRED" not in mdtxt)
-check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v9.0.0" in mdtxt)
+check("main: code-availability cites real public GitHub repo","github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt and "releases/tag/v10.0.0" in mdtxt)
 check("Discussion gap-direction logic fixed (overstate apparent gap)","overstate the apparent diagnosis gap" in mdtxt)
 check("CL: signed by corresponding author","Jianhuang Huang" in cltxt_n and "teamhuang@sina.com" in cltxt_n and "2026-10-29" in cltxt_n)
 check("CL: internal author work-list removed from cover letter","Final steps before clicking submit" not in cltxt_n and "Checklist to complete" not in cltxt_n)
@@ -277,7 +277,7 @@ check("no fabricated ORCID in manuscript", not fake_orcid, str(fake_orcid.group(
 # The Round-11 polish removed the defensive "no DOI yet" sentence; the substantive guarantee is that
 # availability pins a resolvable version tag and mints NO unbacked DOI. Enforce that instead.
 check("code availability pins a resolvable version tag, cites no DOI",
-      "releases/tag/v9.0.0" in mdtxt and not re.search(r"\bdoi\.org/10\.5281|\b10\.5281/", mdtxt),
+      "releases/tag/v10.0.0" in mdtxt and not re.search(r"\bdoi\.org/10\.5281|\b10\.5281/", mdtxt),
       "")
 # STROBE must use official items 1-22 and give real line anchors (no leftover TBD)
 STROBE=ROOT/"manuscript"/"STROBE_checklist.md"
@@ -330,7 +330,7 @@ if m:
 else: check("abstract found",False)
 title=mdtxt.splitlines()[0].lstrip("# ").strip(); tw=len(re.findall(r"\S+",title)); check(f"title<=20w (={tw})",tw<=20)
 for fig in ["Fig1_flowchart","Fig2_gradient_forest","Fig3_eyecare_dots"]: check(f"embed {fig}", fig+".png" in mdtxt)
-for fig in ["FigS1_nhis_amd","FigS2_gradability_ipw"]: check(f"embed {fig}", fig+".png" in supptxt)
+for fig in ["FigS1_gradability_ipw","FigS2_nhis_amd"]: check(f"embed {fig}", fig+".png" in supptxt)
 
 print("="*60); print(f"PASSED: {len(oks)}   FAILED: {len(fails)}"); print("="*60)
 if fails:

@@ -1,6 +1,6 @@
 # Analysis repository — Objectively graded retinal disease, self-reported diagnosis, and eye-care utilisation in US adults (NHANES 2005-2008)
 
-Deposit-ready archive accompanying the *Scientific Reports* submission (**archive v9.0.0**). **Contains
+Deposit-ready archive accompanying the *Scientific Reports* submission (**archive v10.0.0**). **Contains
 no individual-level data** (see .gitignore / LICENSE): you download the public NHANES/NHIS files yourself
 and rebuild.
 

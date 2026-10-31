@@ -161,7 +161,7 @@ fig.subplots_adjust(left=0.28,right=0.97,top=0.98,bottom=0.16)
 save(fig,"Fig3_eyecare_dots")
 
 # ==========================================================
-# FIGURE S1 (supp): NHIS vs NHANES AMD cross-survey (demoted from old main Fig 3)
+# FIGURE S2 (supp): NHIS vs NHANES AMD cross-survey (demoted from old main Fig 3)
 # ==========================================================
 obj=prev[prev.measure.str.contains("Any AMD")].iloc[0]
 crude=nstdv[nstdv.quantity.str.contains("crude")].iloc[0]
@@ -180,10 +180,10 @@ ax.set_xticklabels(["NHANES\ngraded\n2005\u201308","NHIS\nself-report\ncrude","N
 ax.set_xlim(-0.6,2.6); ax.set_ylabel("Weighted % (US adults \u2265 40)",fontsize=6.5,labelpad=2)
 ax.set_ylim(0,max(vals3)*1.30)
 fig.subplots_adjust(left=0.16,right=0.98,top=0.98,bottom=0.20)
-save(fig,"FigS1_nhis_amd")
+save(fig,"FigS2_nhis_amd")
 
 # ==========================================================
-# FIGURE S2 (supp): gradability / IPW sensitivity (naive vs IPW base vs IPW extended)
+# FIGURE S1 (supp): gradability / IPW sensitivity (naive vs IPW base vs IPW extended)
 # ==========================================================
 meas=["Any retinopathy","Any AMD"]
 naive=[9.75,6.58]; ipw_base=[9.98,6.87]; ipw_ext=[10.13,6.77]
@@ -198,7 +198,7 @@ ax.set_xticks(x); ax.set_xticklabels(meas,fontsize=6.2)
 ax.set_ylim(0,max(ipw_ext)*1.28); ax.set_ylabel("Weighted % (US adults \u2265 40)",fontsize=6.3,labelpad=2)
 ax.legend(fontsize=5.4,loc="upper right",handlelength=1.0,ncol=1)
 fig.subplots_adjust(left=0.17,right=0.98,top=0.98,bottom=0.14)
-save(fig,"FigS2_gradability_ipw")
+save(fig,"FigS1_gradability_ipw")
 
 print("\nFig2 DR rows:",dr_rows)
 print("Fig2 AMD rows:",amd_rows)
