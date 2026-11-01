@@ -13,8 +13,9 @@ NEW SUPPLEMENT FIGURES
   Figure S1 = NHIS vs NHANES AMD cross-survey comparison (demoted from old main Figure 3).
   Figure S2 = gradability / IPW sensitivity (naive vs IPW base vs IPW extended).
 
-House style (unchanged from v11): Nature look, Arial, Okabe-Ito, 600 dpi PNG + vector PDF,
-height 5 cm, width 5 cm (single panel) or 6.5 cm (multi/wide), NO title/footnote ON the plot.
+House style: Nature look, Arial, Okabe-Ito, 600 dpi PNG + vector PDF, 5 cm x 5 cm for
+EVERY figure, no title/footnote/text-note ON the plot (panel letters a/b are the only
+on-figure text, per the panel-label convention).
 """
 import os
 for v in ("OMP_NUM_THREADS","MKL_NUM_THREADS","OPENBLAS_NUM_THREADS","NUMEXPR_NUM_THREADS"):
@@ -69,27 +70,27 @@ retin_dm=319; dr_den=313; amd_obj=441; amd_den=436
 dr_model=modeln("CORE complete-case"); amd_model=modeln("AMD CORE")
 dr_nonresp=retin_dm-dr_den; amd_nonresp=amd_obj-amd_den
 
-fig, ax = plt.subplots(figsize=(6.5*CM, 5*CM))
+fig, ax = plt.subplots(figsize=(5*CM, 5*CM))
 ax.axis("off"); ax.set_xlim(0,1); ax.set_ylim(0,1)
-def box(x,y,w,h,txt,fc,fs=5.2):
+def box(x,y,w,h,txt,fc,fs=6.0):
     ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle="round,pad=0.008",fc=fc,ec=OI["gray"],lw=0.6,mutation_scale=0.5))
-    ax.text(x+w/2,y+h/2,txt,ha="center",va="center",fontsize=fs,color="black")
+    ax.text(x+w/2,y+h/2,txt,ha="center",va="center",fontsize=fs,color="black",linespacing=1.15)
 def arrow(y1,y2,x=0.5):
     ax.annotate("",xy=(x,y2),xytext=(x,y1),arrowprops=dict(arrowstyle="-|>",color=OI["gray"],lw=0.7))
 
-box(0.02,0.87,0.96,0.10,f"Examined NHANES adults \u2265 40, retinal photography (2005\u201308)  n = {examined:,}",OI["sky"],fs=5.4)
-arrow(0.87,0.81)
-box(0.02,0.69,0.46,0.10,f"Gradable DR image  n = {grad_dr:,}",'#eef6fb',fs=5.4)
-box(0.52,0.69,0.46,0.10,f"Gradable AMD image  n = {grad_amd:,}",'#eef6fb',fs=5.4)
-arrow(0.69,0.62,x=0.25); arrow(0.69,0.62,x=0.75)
-box(0.02,0.50,0.46,0.10,f"Diabetes + retinopathy  n = {retin_dm:,}\n(of {dm_grad:,} gradable with DM)",'#fdeee6',fs=5.0)
-box(0.52,0.50,0.46,0.10,f"Objectively graded AMD  n = {amd_obj:,}",'#fdeee6',fs=5.4)
-arrow(0.50,0.43,x=0.25); arrow(0.50,0.43,x=0.75)
-box(0.02,0.30,0.46,0.11,f"Answered dx item \u2192 primary gap\nn = {dr_den:,}  (\u2212{dr_nonresp} non-responders)",'#fdf3d8',fs=5.0)
-box(0.52,0.30,0.46,0.11,f"Answered dx item \u2192 primary gap\nn = {amd_den:,}  (\u2212{amd_nonresp} non-responders)",'#fdf3d8',fs=5.0)
+box(0.02,0.86,0.96,0.11,f"Examined NHANES \u2265 40 with retinal photography\n2005\u201308   n = {examined:,}",OI["sky"],fs=6.2)
+arrow(0.86,0.80)
+box(0.02,0.68,0.46,0.10,f"Gradable DR\nn = {grad_dr:,}",'#eef6fb')
+box(0.52,0.68,0.46,0.10,f"Gradable AMD\nn = {grad_amd:,}",'#eef6fb')
+arrow(0.68,0.61,x=0.25); arrow(0.68,0.61,x=0.75)
+box(0.02,0.49,0.46,0.10,f"Diabetes +\nretinopathy  n = {retin_dm:,}",'#fdeee6')
+box(0.52,0.49,0.46,0.10,f"Graded AMD\nn = {amd_obj:,}",'#fdeee6')
+arrow(0.49,0.42,x=0.25); arrow(0.49,0.42,x=0.75)
+box(0.02,0.30,0.46,0.10,f"Gap denominator\nn = {dr_den:,}  (\u2212{dr_nonresp})",'#fdf3d8')
+box(0.52,0.30,0.46,0.10,f"Gap denominator\nn = {amd_den:,}  (\u2212{amd_nonresp})",'#fdf3d8')
 arrow(0.30,0.23,x=0.25); arrow(0.30,0.23,x=0.75)
-box(0.02,0.06,0.46,0.13,f"DR core model (complete cov.)\nn = {dr_model:,}  (\u2212{dr_den-dr_model} missing educ/PIR)",OI["green"],fs=4.9)
-box(0.52,0.06,0.46,0.13,f"AMD core model (complete cov.)\nn = {amd_model:,}  (\u2212{amd_den-amd_model} missing educ/PIR)",OI["green"],fs=4.9)
+box(0.02,0.08,0.46,0.12,f"DR core model\nn = {dr_model:,}  (\u2212{dr_den-dr_model} missing)",OI["green"])
+box(0.52,0.08,0.46,0.12,f"AMD core model\nn = {amd_model:,}  (\u2212{amd_den-amd_model} missing)",OI["green"])
 fig.subplots_adjust(left=0.01,right=0.99,top=0.99,bottom=0.01)
 save(fig,"Fig1_flowchart")
 
@@ -109,10 +110,10 @@ def forest(ax, rows, colors, title_side):
                     mew=1.1,zorder=3)
         else:
             ax.plot(e,yi,marker="o",ms=5.4,color=colors[rows.index((lab,e,lo,hi,n,hollow))],zorder=3)
-        ax.text(101,yi,f"{e:.1f}",va="center",ha="left",fontsize=5.6,color=OI["gray"])
+        ax.text(104,yi,f"{e:.1f}",va="center",ha="left",fontsize=5.6,color=OI["gray"])
     ax.set_yticks(ypos)
-    ax.set_yticklabels([f"{r[0]}\nn={r[4]:,}" for r in rows],fontsize=5.6)
-    ax.set_xlim(0,112); ax.set_xticks([0,50,100])
+    ax.set_yticklabels([f"{r[0]}\nn={r[4]:,}" for r in rows],fontsize=5.4)
+    ax.set_xlim(0,124); ax.set_xticks([0,50,100])
     ax.axvline(0,color=OI["gray"],lw=0.5)
     ax.tick_params(axis="y",length=0)
 
@@ -134,14 +135,14 @@ amd_rows+=[("Early AMD",e[0],e[1],e[2],e[3],False),
            ("Late AMD",l[0],l[1],l[2],l[3],False)]
 amd_cols=[OI["verm"],OI["orange"],OI["blue"]]
 
-fig,(axl,axr)=plt.subplots(1,2,figsize=(6.5*CM,5*CM))
+fig,(axl,axr)=plt.subplots(2,1,figsize=(5*CM,5*CM))
 forest(axl,dr_rows,dr_cols,"DR")
 forest(axr,amd_rows,amd_cols,"AMD")
 for ax,(t,col) in zip((axl,axr),[("Diabetic retinopathy",OI["verm"]),("Age-related macular degeneration",OI["blue"])]):
-    ax.set_xlabel("% no self-reported dx",fontsize=5.8,labelpad=2)
-axl.text(-0.30,1.06,"a",transform=axl.transAxes,fontsize=8,fontweight="bold",va="top",ha="left")
-axr.text(-0.30,1.06,"b",transform=axr.transAxes,fontsize=8,fontweight="bold",va="top",ha="left")
-fig.subplots_adjust(wspace=0.95,left=0.30,right=0.93,top=0.90,bottom=0.20)
+    ax.set_xlabel("% no self-reported dx",fontsize=6.0,labelpad=2)
+axl.text(0.015,0.99,"a",transform=axl.transAxes,fontsize=8,fontweight="bold",va="top",ha="left")
+axr.text(0.015,0.99,"b",transform=axr.transAxes,fontsize=8,fontweight="bold",va="top",ha="left")
+fig.subplots_adjust(hspace=0.85,left=0.36,right=0.98,top=0.92,bottom=0.13)
 save(fig,"Fig2_gradient_forest")
 
 # ==========================================================
