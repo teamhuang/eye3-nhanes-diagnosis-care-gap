@@ -209,7 +209,7 @@ must={
  "terminology: no 'diabetic retinopathy cohort'":"diabetic retinopathy cohort" not in mdtxt.lower(),
  "Figure 2 severity gradient embed":"Fig2_gradient_forest.png" in mdtxt,
  "Figure 3 objective-vs-selfreport embed":"Fig3_eyecare_dots.png" in mdtxt,
- "code availability v7":"survey_analysis_v7.R" in mdtxt and "verify_v7.py" in mdtxt and "consolidate_v7.py" in mdtxt,
+ "code availability names the repo":"Code availability" in mdtxt and "github.com/teamhuang/eye3-nhanes-diagnosis-care-gap" in mdtxt,
  "numbers_v7 referenced":"numbers_v7.csv" in mdtxt and "numbers_v7.csv" in supptxt,
  # ---- round-8 additions ----
  "regression-audit table heading (new S2)":"Supplementary Table S2" in supptxt,
